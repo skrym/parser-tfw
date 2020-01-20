@@ -1,0 +1,18 @@
+{
+  "name": "Page Redder",
+  "version": "2.0",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://testonjob.ru/app/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "browser_action": {
+    "default_title": "Make this page red"
+  },
+  "manifest_version": 2
+}
