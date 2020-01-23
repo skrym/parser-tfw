@@ -7,14 +7,19 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+const URI_DB = process.env.URI_DB || ''
+
 const connectS = async () => {
-  const conn = await mongoose.connect('<DBName>', {
+  // Create connection to DB
+  const conn = await mongoose.connect(URI_DB, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
     useUnifiedTopology: true
   })
   console.log(`MongoDB Connected: ${conn.connection.host}`)
+
+  // Create server
   const server = app.listen(5050, console.log(`Server running on port 5050`))
 }
 connectS()
