@@ -7,8 +7,10 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+const URI = process.env.URI || ''
+
 const connectS = async () => {
-  const conn = await mongoose.connect('<DBName>', {
+  const conn = await mongoose.connect(URI, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
